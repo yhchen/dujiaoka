@@ -23,18 +23,18 @@ class DujiaoBoot
             return redirect(url('install'));
         }
         // 浏览器检测
-        $userAgent = $request->header('user-agent');
-        $nowUri = site_url() . $request->path();
-        $tplPath = 'common/notencent';
-        if (
-            (strpos($userAgent, 'QQ/')
-            ||
-            strpos($userAgent, 'MicroMessenger') !== false)
-            &&
-            dujiaoka_config_get('is_open_anti_red', BaseModel::STATUS_OPEN) == BaseModel::STATUS_OPEN
-        ) {
-            return response()->view($tplPath, ['nowUri' => $nowUri]);
-        }
+        // $userAgent = $request->header('user-agent');
+        // $nowUri = site_url() . $request->path();
+        // $tplPath = 'common/notencent';
+        // if (
+        //     (strpos($userAgent, 'QQ/')
+        //     ||
+        //     strpos($userAgent, 'MicroMessenger') !== false)
+        //     &&
+        //     dujiaoka_config_get('is_open_anti_red', BaseModel::STATUS_OPEN) == BaseModel::STATUS_OPEN
+        // ) {
+        //     return response()->view($tplPath, ['nowUri' => $nowUri]);
+        // }
         // 语言检测
         $lang = dujiaoka_config_get('language', 'zh_CN');
         app()->setLocale($lang);
